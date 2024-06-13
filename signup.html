@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <h3 class="font-bold text-center text-2xl mt-4">Регистрация</h3>
+    <div class="box">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="bg-red-400 px-2 py-3 mt-5 text-white">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/signup" class="mt-5">
+            <div class="field">
+                <div class="control">
+                    <input class="w-full border border-black p-2" type="email" name="email" placeholder="Email" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="w-full border border-black p-2 mt-3" type="text" name="name" placeholder="Name" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input class="w-full border border-black p-2 mt-3" type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+
+            <button class="mt-5 px-6 bg-indigo-600 text-white py-2">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

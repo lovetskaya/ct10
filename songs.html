@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="font-bold text-center text-2xl mt-4">Здравствуйте, {{ name }}!</h1>
+<p class="text-center text-xl mt-2">Список песен:</p>
+<div class="">
+  <div class="flex gap-5 flex-wrap pl-3 mt-5">
+  {% for song in songs %}
+    <div class="border border-black p-3">
+      <div class="font-bold text-lg">{{ song.title }}</div>
+      <p class="-mt-1">{{ song.album.artist.name }}</p>
+      <div class="mt-2">
+          <p>Альбом: 
+          <strong>{{ song.album.title }}</strong></p>
+          <p>Длина: {{ song.length }} минут</p>
+          <p>Номер трека: {{ song.track_number }}</p>
+          <p>Дата релиза: {{ song.album.year }}</p>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
